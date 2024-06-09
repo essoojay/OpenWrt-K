@@ -85,7 +85,6 @@ runs:
               git clone https://git.openwrt.org/openwrt/openwrt.git $GITHUB_WORKSPACE/openwrt
               cd $GITHUB_WORKSPACE/openwrt
               export OPENWRT_TAG_BRANCH="$(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/$i/OpenWrt-K/compile.config | sed -e 's/.*=//')"
-              echo "切换到分支: $OPENWRT_TAG_BRANCH" 
               git checkout $OPENWRT_TAG_BRANCH
               cat $GITHUB_WORKSPACE/config/$i/target.config >> $GITHUB_WORKSPACE/openwrt/.config
               make defconfig
